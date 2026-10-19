@@ -1,69 +1,77 @@
-import Image from "next/image";
+import { profile, projects, skills } from "@/data/site";
+
+const statusLabel = { live: "Live", building: "In progress", planned: "Coming soon" };
 
 export default function Home() {
+  const links = [
+    { label: "GitHub", href: profile.github },
+    { label: "LinkedIn", href: profile.linkedin },
+    { label: "Resume", href: profile.resume },
+    { label: "Email", href: profile.email && `mailto:${profile.email}` },
+  ].filter((l) => l.href);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
+      <header>
+        <p className="font-mono text-sm text-muted">{profile.name}</p>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-5xl">
+          {profile.headline}
+        </h1>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted text-pretty">{profile.intro}</p>
+        <nav aria-label="Profile links" className="mt-8 flex flex-wrap gap-3">
+          {links.map((l) => (
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              key={l.label}
+              href={l.href}
+              className="rounded-md border border-line px-4 py-2 text-sm font-medium hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <section aria-labelledby="projects" className="mt-20">
+        <h2 id="projects" className="text-sm font-semibold uppercase tracking-wider text-muted">
+          Projects
+        </h2>
+        <ul className="mt-6 grid gap-4">
+          {projects.map((p) => (
+            <li key={p.title} className="rounded-lg border border-line p-5">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-lg font-semibold">{p.title}</h3>
+                <span className="font-mono text-xs text-muted">{statusLabel[p.status]}</span>
+              </div>
+              <p className="mt-2 leading-relaxed text-muted">{p.summary}</p>
+              <p className="mt-3 font-mono text-xs text-muted">{p.stack.join(" · ")}</p>
+              {(p.repo || p.demo) && (
+                <div className="mt-4 flex gap-4 text-sm font-medium">
+                  {p.demo && <a className="underline underline-offset-4" href={p.demo}>Live demo</a>}
+                  {p.repo && <a className="underline underline-offset-4" href={p.repo}>Code</a>}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="skills" className="mt-20">
+        <h2 id="skills" className="text-sm font-semibold uppercase tracking-wider text-muted">
+          Skills
+        </h2>
+        <dl className="mt-6 grid gap-6 sm:grid-cols-3">
+          {skills.map((s) => (
+            <div key={s.group}>
+              <dt className="font-semibold">{s.group}</dt>
+              <dd className="mt-2 text-muted">{s.items.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <footer className="mt-24 border-t border-line pt-6 text-sm text-muted">
+        Built with Next.js and Claude Code. Deployed on Vercel.
+      </footer>
+    </main>
   );
 }
