@@ -161,7 +161,7 @@ export const projects: Project[] = [
   {
     title: "Prompt Library",
     summary:
-      "Five tested-by-template prompts for data tasks such as cleaning a column and writing SQL, with a small script to fill them. Example outputs are marked as not run with a live key.",
+      "Five prompt templates for data tasks such as cleaning a column and writing SQL, with a small script to fill them. Example outputs are marked as not run with a live key.",
     stack: ["Prompt engineering","Python","Gemini API"],
     status: "done",
     repo: "https://github.com/YazanAlshareef/prompt-library",
