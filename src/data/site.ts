@@ -70,6 +70,86 @@ export const projects: Project[] = [
     status: "done",
     repo: "https://github.com/YazanAlshareef/CPP-pokimone-game",
   },
+  {
+    title: "Excel Sales Dashboard",
+    summary:
+      "A messy sales dataset cleaned step by step in a workbook with a cleaning log, summary tables and an interactive one-page dashboard. Built with an AI coding assistant; Excel-side checks were done in Excel itself.",
+    stack: ["Excel","Python","openpyxl"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/excel-sales-dashboard",
+  },
+  {
+    title: "SQL Bookstore Analytics",
+    summary:
+      "A relational schema for an independent bookstore plus 20 business questions answered with joins, CTEs and window functions, each with real output. Runs on synthetic data.",
+    stack: ["SQL","SQLite","Python"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/sql-bookstore-analytics",
+  },
+  {
+    title: "AI Invoice Extractor",
+    summary:
+      "Reads synthetic invoices, extracts fields with an LLM, validates totals and dates, and sends doubtful rows to a review file. Tests run offline; not yet run with a live key.",
+    stack: ["Python","Gemini API","pytest"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/ai-invoice-extractor",
+  },
+  {
+    title: "Handbook RAG Chatbot",
+    summary:
+      "Answers questions over openly licensed handbook pages, cites the source for each answer, and refuses when the documents do not cover the question.",
+    stack: ["Next.js","TypeScript","Gemini API"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/handbook-rag-chatbot",
+  },
+  {
+    title: "RAG Eval Harness",
+    summary:
+      "Scores the RAG chatbot on retrieval, answers, citations and refusals across two configurations. Offline replay works; results shown are fixtures, not a live run.",
+    stack: ["TypeScript","Node","LLM evaluation"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/rag-eval-harness",
+  },
+  {
+    title: "SQL MCP Server",
+    summary:
+      "A read-only MCP server over the bookstore database. Security tests check that writes and injection attempts are rejected.",
+    stack: ["Python","MCP","SQLite"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/sql-mcp-server",
+  },
+  {
+    title: "Job Alert Automation",
+    summary:
+      "A daily job digest: fetches postings, scores fit against my profile with an LLM, and prints the best matches. Includes an n8n workflow and a scheduled script. Tested on synthetic postings.",
+    stack: ["Python","n8n","Gemini API"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/job-alert-automation",
+  },
+  {
+    title: "csv-doctor",
+    summary:
+      "A command-line tool that profiles a messy CSV, writes a report and saves a cleaned copy without touching the original.",
+    stack: ["Python","pandas","pytest"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/csv-doctor",
+  },
+  {
+    title: "Job Fit Extension",
+    summary:
+      "A Chrome extension: press Alt+Shift+F on a job page to get a 0-10 fit score, matched skills and gaps. Tested in mock mode.",
+    stack: ["JavaScript","Chrome extension","Gemini API"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/job-fit-extension",
+  },
+  {
+    title: "Keyboard Cheatsheet",
+    summary:
+      "A searchable page of Windows, VS Code, Excel and Chrome shortcuts you can use without a mouse.",
+    stack: ["JavaScript","HTML","CSS"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/keyboard-cheatsheet",
+  },
 ];
 
 export const alsoBuilt = [
@@ -79,27 +159,9 @@ export const alsoBuilt = [
 
 export const next: Project[] = [
   {
-    title: "Operations Dashboard (Excel)",
-    summary: "Messy sales data cleaned with Power Query and turned into an interactive KPI dashboard.",
-    stack: ["Excel", "Power Query", "PivotTables"],
-    status: "planned",
-  },
-  {
-    title: "SQL Database Design + Analysis",
-    summary: "Relational schema for a realistic business, answering 20 business questions with SQL.",
-    stack: ["PostgreSQL", "SQL"],
-    status: "planned",
-  },
-  {
-    title: "AI Data-Entry Pipeline",
-    summary: "Extracts fields from invoices with an LLM, validates them, and writes rows to a sheet.",
-    stack: ["Python", "Gemini API", "Google Sheets"],
-    status: "planned",
-  },
-  {
-    title: "RAG Chatbot",
-    summary: "Answers questions over real documents and cites the source page for every answer.",
-    stack: ["Next.js", "Gemini API", "pgvector"],
+    title: "Internship Tracker",
+    summary: "A full-stack app to track internship applications, with per-user data protection and an AI pitch tailoring button.",
+    stack: ["Next.js", "Supabase", "Gemini API"],
     status: "planned",
   },
 ];
