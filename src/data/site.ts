@@ -150,6 +150,22 @@ export const projects: Project[] = [
     status: "done",
     repo: "https://github.com/YazanAlshareef/keyboard-cheatsheet",
   },
+  {
+    title: "Excel Automation Scripts",
+    summary:
+      "Small scripts to merge workbooks, remove duplicates, check required columns, build pivot summaries and flag anomalies. Each has sample files and tests.",
+    stack: ["Python","openpyxl","pandas"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/excel-automation-scripts",
+  },
+  {
+    title: "Prompt Library",
+    summary:
+      "Five tested-by-template prompts for data tasks such as cleaning a column and writing SQL, with a small script to fill them. Example outputs are marked as not run with a live key.",
+    stack: ["Prompt engineering","Python","Gemini API"],
+    status: "done",
+    repo: "https://github.com/YazanAlshareef/prompt-library",
+  },
 ];
 
 export const alsoBuilt = [
